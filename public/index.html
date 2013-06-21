@@ -82,8 +82,10 @@
         <h1>Convert your Vine videos to animated GIFs!</h1>
         <p class="lead">Paste the URL of your favorite Vine and we'll convert it to a super cool GIF. Example: https://vine.co/v/bxuOxOImn5I</p>
         <hr>
-        <input type="text" class="input-xlarge">
-        <a class="btn btn-large btn-success" href="#">Animate!</a>
+        <form id="gvine-form" method="get">
+          <input type="text" class="input-xlarge" id="original-vine-url">
+          <button type="submit" class="btn btn-large btn-success">Animate!</a>
+        </form>
       </div>
 
       <hr>
@@ -103,6 +105,14 @@
       </div>
 
     </div> <!-- /container -->
+    <script src="jquery.min.js"></script>
+    <script>
+      $('#gvine-form').on('submit', function () {
+        var new_url = '/v/' + $('input[type=text]').val().match(/\/v\/(.*)/)[1];
+        document.location = new_url;
+        return false;
+      });
+    </script>
   </body>
 </html>
 
