@@ -41,21 +41,27 @@ app.get('/gif/:id', function (req, res) {
         });
 
         response.on('end', function () {
-          url = data.join('').match(/\<source src="([^"]*)"/)[1];
+          try {
+            url = data.join('').match(/\<source src="([^"]*)"/)[1];
 
-          file = fs.createWriteStream(videopath);
-          request = https.get(url, function (response) {
-            response.pipe(file);
-            response.on('end', function () {
-              var child1 = exec(command1, function (error, stdout, stderr) {
-                var child2 = exec(command2, function (error, stdout, stderr) {
-                  var child3 = exec(command3, function (error, stdout, stderr) {
-                    res.sendfile(gifpath);
+            file = fs.createWriteStream(videopath);
+            request = https.get(url, function (response) {
+              response.pipe(file);
+              response.on('end', function () {
+                var child1 = exec(command1, function (error, stdout, stderr) {
+                  var child2 = exec(command2, function (error, stdout, stderr) {
+                    var child3 = exec(command3, function (error, stdout, stderr) {
+                      res.sendfile(gifpath);
+                    });
                   });
                 });
               });
             });
-          });
+          }
+          catch (e) {
+            res.redirect('/');
+          }
+
         });
       });
     }
