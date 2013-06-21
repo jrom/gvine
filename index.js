@@ -6,12 +6,18 @@ var express = require('express'),
 var app = express();
 app.use(express.static('public'));
 
+app.engine('html', require('ejs').renderFile);
+
 app.get('/', function (req, res) {
   res.send('index.html');
 });
 
-app.get('/video/:filename', function (req, res) {
-  var id = req.params.filename,
+app.get('/v/:id', function (req, res) {
+  res.render('v.html', { id: req.params.id });
+});
+
+app.get('/gif/:id', function (req, res) {
+  var id = req.params.id,
       tmpdir = 'tmp/',
       gifdir = 'gif/',
       gifpath = gifdir + id + '.gif',
