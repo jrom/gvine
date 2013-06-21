@@ -4,6 +4,7 @@ var express = require('express'),
     https = require('https');
 
 var app = express();
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   res.send('index.html');
