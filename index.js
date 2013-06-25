@@ -3,8 +3,13 @@ var express = require('express'),
     fs = require('fs'),
     https = require('https'),
     jade = require('jade'),
+    less = require('less-middleware'),
     app = express();
 
+app.use(less({
+  src: __dirname + '/public',
+  compress: true
+}));
 app.use(express['static']('public'));
 app.use(express.logger());
 
