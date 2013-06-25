@@ -26,7 +26,7 @@ html(lang='en')
         max-width: 700px;
         }
         .container-narrow > hr {
-        margin: 30px 0;
+        margin: 50px 0;
         }
         /* Main marketing message and sign up button */
         .jumbotron {
@@ -53,6 +53,14 @@ html(lang='en')
         .marketing p + h4 {
         margin-top: 28px;
         }
+        ul.social {
+          width: 150px;
+          margin-left: 0;
+          list-style: none;
+        }
+
+        ul.social li {
+        }
     script
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -63,10 +71,29 @@ html(lang='en')
       ga('send', 'pageview');
 
   body
+    #fb-root
+    script
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=244996862302575";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     .container-narrow
       .masthead
+        ul.social.pull-right
+          li.twiter-follow
+            a.twitter-follow-button(href="https://twitter.com/jordiromero", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @jordiromero
+          li.twitter-post
+            a.twitter-share-button(href="https://twitter.com/share", data-url="http://gvine.co/", data-text="Create animated GIFs from Vine videos!", data-via="jordiromero", data-related="jordiromero", data-hashtags="vine", data-dnt="true") Tweet
+            script.
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+          li.facebook
+            .fb-like(data-href="http://gvine.co/", data-send="false", data-layout="button_count", data-width="450", data-show-faces="false")
         h3.muted
           a(href='/') GVine
+
       hr
       block content
       hr
