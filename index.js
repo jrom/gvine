@@ -104,7 +104,13 @@ app.get('/gif/:id', function (req, res) {
   data.gifpath    = data.gifdir + data.id + '.gif';
   data.videopath  = data.tmpdir + data.id + '.mp4';
 
-  serve_gif(data);
+  if (data.id.match(/^\w+$/)) {
+    serve_gif(data);
+  }
+  else {
+    console.log('[WARNING] invalid id: ', data.id);
+    res.redirect(301, '/');
+  }
 });
 
 app.listen(4000);
