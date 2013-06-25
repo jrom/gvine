@@ -1,16 +1,17 @@
 var express = require('express'),
     exec = require('child_process').exec,
     fs = require('fs'),
-    https = require('https');
+    https = require('https'),
+    ejs = require('ejs'),
+    app = express();
 
-var app = express();
 app.use(express['static']('public'));
 app.use(express.logger());
 
-app.engine('html', require('ejs').renderFile);
+app.engine('html', ejs.renderFile);
 
 app.get('/', function (req, res) {
-  res.send('index.html');
+  res.render('index.html');
 });
 
 app.get('/v/:id', function (req, res) {
