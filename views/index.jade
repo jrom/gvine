@@ -22,7 +22,7 @@ block content
 block scripts
   script
     $('#gvine-form').on('submit', function () {
-      var new_url = '/v/' + $('input[type=text]').val().match(/\\/v\/(.*)/)[1];
+      var new_url = '/v/' + $('input[type=text]').val().match(/\/v\/(.*)/)[1];
       document.location = new_url;
-    return false;
-  });
+      return false;
+    });
