@@ -2,20 +2,20 @@ var express = require('express'),
     exec = require('child_process').exec,
     fs = require('fs'),
     https = require('https'),
-    ejs = require('ejs'),
+    jade = require('jade'),
     app = express();
 
 app.use(express['static']('public'));
 app.use(express.logger());
 
-app.engine('html', ejs.renderFile);
+app.engine('jade', jade.__express);
 
 app.get('/', function (req, res) {
-  res.render('index.html');
+  res.render('index.jade');
 });
 
 app.get('/v/:id', function (req, res) {
-  res.render('v.html', { id: req.params.id });
+  res.render('show.jade', { id: req.params.id });
 });
 
 app.get('/gif/:id', function (req, res) {
