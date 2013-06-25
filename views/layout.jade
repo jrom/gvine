@@ -1,0 +1,70 @@
+!!! 5
+html(lang='en')
+head
+    meta(charset='utf-8')
+    title GVine
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='Create animated gifs from vine videos')
+    meta(name='author', content='Jordi Romero')
+    //
+       Le styles 
+    link(href='/bootstrap.min.css', rel='stylesheet')
+    style(type='text/css')
+      body {
+      padding-top: 20px;
+      padding-bottom: 40px;
+      }
+      .result {
+      text-align: center;
+      margin-bottom: 50px;
+      }
+      .result .urls {
+      margin-top: 10px;
+      }
+      /* Custom container */
+      .container-narrow {
+      margin: 0 auto;
+      max-width: 700px;
+      }
+      .container-narrow > hr {
+      margin: 30px 0;
+      }
+      /* Main marketing message and sign up button */
+      .jumbotron {
+      margin: 60px 0;
+      text-align: center;
+      }
+      .jumbotron h1 {
+      font-size: 72px;
+      line-height: 1;
+      }
+      .jumbotron .btn {
+      font-size: 21px;
+      padding: 14px 24px;
+      }
+      .jumbotron input {
+      padding: 14px;
+      margin: 0 20px;
+      font-size: 1.3em;
+      }
+      /* Supporting marketing content */
+      .marketing {
+      margin: 60px 0;
+      }
+      .marketing p + h4 {
+      margin-top: 28px;
+      }
+  body
+    .container-narrow
+      .masthead
+        h3.muted
+          a(href='/') GVine
+      hr
+      block content
+      hr
+      .footer
+        p &copy; Jordi Romero 2013
+        p GVine is a fun project created by Jordi Romero and is not associated with or endorsed by Vine or Twitter.
+        p Also, this has nothing to do with the gin with that name, although it's a really good gin.
+    script(src='/jquery.min.js')
+    block scripts
