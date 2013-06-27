@@ -4,16 +4,14 @@ block content
     h1 Convert your Vine videos to animated GIFs!
     p.lead
       | Paste the URL of your favorite Vine and we'll convert it to a super cool GIF. Example: https://vine.co/v/bxuOxOImn5I
-    hr
     form#gvine-form(method='get')
       input#original-vine-url.input-xlarge(type='text')
       button.btn.btn-large.btn-success(type='submit')
         | Animate!
-  hr
   .result
     p.lead Result
     img(src='/gif/bxuOxOImn5I', alt='Animated GIF from a Vine video')
-    p.urls
+    .urls
       | Vine:
       a(href='https://vine.co/v/bxuOxOImn5I') https://vine.co/v/bxuOxOImn5I
       | – GVine:
