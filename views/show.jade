@@ -1,11 +1,11 @@
 extends layout
 block content
   .result
-    p.lead Animated GIF of the Vine video
+    h1 Animated GIF of the Vine video
     p.lead Wait until it converts... the first time can take up to 30 seconds.
     img(src="/gif/#{id}", alt='Animated GIF from a Vine video', id='gvine-image')
     p.urls
-      | Vine: 
+      | Vine:
       a(id="vine-url", href="https://vine.co/v/#{id}") https://vine.co/v/#{id}
-      | – GVine: 
+      | – GVine:
       a(id="gvine-url", href="/v/#{id}") http://gvine.co/v/#{id}
