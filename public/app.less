@@ -3,7 +3,9 @@
 
 // Variables
 @green: #00b489;
+@dark-green: #009773;
 @red: #d55032;
+@red2: #c5403f;
 @dark: #19141f;
 @white: #fff;
 @main-font: 'Yanone Kaffeesatz', sans-serif;
@@ -21,11 +23,47 @@
   background: -ms-linear-gradient(@dir, @start-color 0%, @end-color 100%);
   background: -o-linear-gradient(@dir, @start-color 0%, @end-color 100%);
   background: linear-gradient(@dir, @start-color 0%, @end-color 100%);
-  //.linear-gradient-ie( @dir, @start-color, @end-color);
+  .linear-gradient-ie( @dir, @start-color, @end-color);
 }
 
-.container-narrow   { margin: 0 auto; max-width: 700px; text-align: center;
-  > hr              { margin: 50px 0; }
+.linear-gradient-ie( @dir, @start-color, @end-color) when (@dir = left),
+  not ( isstring(@dir) ) and ( @dir >= 315 ) and ( @dir < 360 ),
+  not ( isstring(@dir) ) and ( @dir >= -45 ) and ( @dir < 45 ),
+  not ( isstring(@dir) ) and ( @dir < -315 ) and ( @dir >= -360 ) {
+    .linear-gradient-ie-filter(@start-color, @end-color, 1);
+}
+
+.linear-gradient-ie-filter(@start: #eee, @end: #aaa, @type: 1) {
+  @c-start: argb(@start);
+  @c-end:   argb(@end);
+  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{c-start}', endColorstr='@{c-end}', GradientType=@{type})";
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{c-start}',endColorstr='@{c-end}',GradientType=@{type})";
+}
+
+//Animations
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+@-webkit-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+@-ms-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+@-moz-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: center;
+  position: relative;
+  z-index: 9999;
 }
 
 body {
@@ -36,7 +74,28 @@ body {
 }
 
 .header{
-  .linear-gradient(150deg,  @green, @red);
+  position: relative;
+  background-color: @red;
+  .linear-gradient(135deg,  @green, @red2);
+  min-height: 100vmin;
+  overflow: hidden;
+}
+
+.bg_wrapper{
+  background-image: url("bg.png");
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 1400px;
+  width: 100%;
+  z-index: 99;
+  opacity: 0.2;
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  animation: animatedBackground 20s linear infinite;
+  -ms-animation: animatedBackground 20s linear infinite;
+  -moz-animation: animatedBackground 20s linear infinite;
+  -webkit-animation: animatedBackground 20s linear infinite;
 }
 
 .footer{
@@ -53,21 +112,35 @@ body {
 
 .jumbotron {
   margin: 60px 0;
-}
-
-.jumbotron h1 {
+  h1 {
   font-size: 72px;
+  font-weight: 100;
   line-height: 1;
-}
-.jumbotron .btn {
+  }
+  .btn {
   font-size: 21px;
   padding: 14px 24px;
+  }
+  input {
+    padding: 14px;
+    margin: 0 10px;
+    font-size: 1.3em;
+    &:focus{
+      border-color: @dark;
+      outline: 0;
+      outline: thin dotted 9;
+      -webkit-box-shadow: inset 0 1px 1px fadeout(@dark, 80%), 0 0 8px fadeout(@dark, 80%);
+      -moz-box-shadow: inset 0 1px 1px fadeout(@dark, 80%), 0 0 8px fadeout(@dark, 80%);
+      box-shadow: inset 0 1px 1px fadeout(@dark, 80%), 0 0 8px fadeout(@dark, 80%);
+    }
+  }
 }
 
-.jumbotron input {
-  padding: 14px;
-  margin: 0 20px;
-  font-size: 1.3em;
+.btn-gvine{
+  .linear-gradient(180deg, @green, @dark-green);
+  &:hover{
+    background-position: 0 0;
+  }
 }
 
 /* Supporting marketing content */
@@ -77,8 +150,48 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+
 ul.social {
-  width: 150px;
-  margin-left: 0;
   list-style: none;
+  margin-top: 3.5em;
+  li{
+    display: inline-block;
+    margin-left: 1em;
+    background-color: rgba(0, 0, 0, .15);
+    padding: 4px 4px 0;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  .twitter-post{
+    width: 90px;
+  }
+}
+
+.jordi-profile{
+  margin-bottom: 4em;
+  img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  }
+  p{
+    font-size: 1.4em;
+    font-weight: 300;
+  }
+}
+.twiter-follow{
+  margin-bottom: 1em;
+}
+.designed_by{
+  font-size: 1.125em;
+  font-weight: 100;
+  a{
+    font-weight: 500;
+    margin-left: 0.5em;
+    color: @green;
+    &:hover{
+      text-decoration: none;
+      color: @red;
+    }
+  }
 }
