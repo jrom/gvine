@@ -30,26 +30,26 @@ html(lang='en')
         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=244996862302575";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-    .container-narrow
-      .masthead
-        ul.social.pull-right
-          li.twiter-follow
-            a.twitter-follow-button(href="https://twitter.com/jordiromero", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @jordiromero
-          li.twitter-post
-            a.twitter-share-button(href="https://twitter.com/share", data-url="http://gvine.co/", data-text="Create animated GIFs from Vine videos!", data-via="jordiromero", data-related="jordiromero", data-hashtags="vine", data-dnt="true") Tweet
-            script.
-              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-          li.facebook
-            .fb-like(data-href="http://gvine.co/", data-send="false", data-layout="button_count", data-width="450", data-show-faces="false")
-        h3.muted
-          a(href='/') GVine
+    .header
+      .bg_wrapper
+      .container-narrow
+        a.logo(href='/') GVine
+        block content
 
-      hr
-      block content
-      hr
-      .footer
-        p &copy; Jordi Romero 2013
-        p GVine is a fun project created by Jordi Romero and is not associated with or endorsed by Vine or Twitter.
-        p Also, this has nothing to do with the gin with that name, although it's a really good gin.
+    .footer
+      .container-narrow
+        .jordi-profile
+          img(src="jrom-profile.jpeg", alt='Jordi Romero')
+          h3 &copy;
+            b Jordi Romero 2013
+          .twiter-follow
+            a.twitter-follow-button(href="https://twitter.com/jordiromero", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @jordiromero
+          p GVine is a fun project created by Jordi Romero and is not associated with or endorsed by Vine or Twitter.
+          p Also, this has nothing to do with the gin with that name, although it's a really good gin.
+
+        span.designed_by
+          | Designed by
+          a(href="https://twitter.com/josep_martins") @josep_martins
+
     script(src='/jquery.min.js')
     block scripts
