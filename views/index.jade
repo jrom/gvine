@@ -3,19 +3,19 @@ block content
   .jumbotron
     h1 Convert your Vine videos to animated GIFs!
     p.lead
-      | Paste the URL of your favorite Vine and we'll convert it to a super cool GIF. Example: https://vine.co/v/bxuOxOImn5I
+      | Paste the URL of your favorite Vine and we'll convert it to a super cool GIF
     form#gvine-form(method='get')
-      input#original-vine-url.input-xlarge(type='text')
-      button.btn.btn-large.btn-success(type='submit')
+      input#original-vine-url.input-xlarge(type='text', placeholder='https://vine.co/v/bxuOxOImn5I', autofocus, value='https://vine.co/v/bxuOxOImn5I')
+      button.btn.btn-large.btn-success.btn-gvine(type='submit')
         | Animate!
-  .result
-    p.lead Result
-    img(src='/gif/bxuOxOImn5I', alt='Animated GIF from a Vine video')
-    .urls
-      | Vine:
-      a(href='https://vine.co/v/bxuOxOImn5I') https://vine.co/v/bxuOxOImn5I
-      | – GVine:
-      a(href='/v/bxuOxOImn5I') http://gvine.co/v/bxuOxOImn5I
+    ul.social
+      li.twitter-post
+        a.twitter-share-button(href="https://twitter.com/share", data-url="http://gvine.co/", data-text="Create animated GIFs from Vine videos!", data-via="jordiromero", data-related="jordiromero", data-hashtags="vine", data-dnt="true") Tweet
+        script.
+          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      li.facebook
+        .fb-like(data-href="http://gvine.co/", data-send="false", data-layout="button_count", data-width="450", data-show-faces="false")
+
 
 block scripts
   script
