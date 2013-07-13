@@ -48,27 +48,87 @@ body {
 
 .header{
   position: relative;
-  background-color: @red;
-  .linear-gradient(135deg,  @green, @red2);
+  background-color: @dark;
   min-height: 100vmin;
   overflow: hidden;
 }
 
-.bg_wrapper{
-  background-image: url("bg.png");
+.bg_wrapper_generated{
   position: absolute;
   top: 0;
-  bottom: 0;
-  height: 1400px;
+  left: 0;
   width: 100%;
-  z-index: 99;
-  opacity: 0.2;
-  background-position: 0px 0px;
-  background-repeat: repeat;
-  animation: animatedBackground 20s linear infinite;
-  -ms-animation: animatedBackground 20s linear infinite;
-  -moz-animation: animatedBackground 20s linear infinite;
-  -webkit-animation: animatedBackground 20s linear infinite;
+  height: 100%;
+}
+
+.bg_wrapper_final{
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  margin-top: -5%;
+  margin-left: -10%;
+  -webkit-transform: scale(5.5);
+  -moz-transform: scale(5.5);
+  -ms-transform: scale(5.5);
+  -o-transform: scale(5.5);
+  transform: scale(5.5);
+  -webkit-filter: blur(5px) grayscale(0.3) brightness(0.2);
+  -moz-filter: blur(5px) grayscale(0.3) brightness(0.2);
+  filter: blur(5px) grayscale(0.3) brightness(0.2);
+}
+
+.bg_wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg_wrapper::before, .bg_wrapper::after {
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  content: "";
+}
+/* line 17, ../../app/styles/_backgrounds.sass */
+.bg_wrapper::before {
+  z-index: 1;
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  margin-top: -5%;
+  margin-left: -10%;
+}
+/* line 26, ../../app/styles/_backgrounds.sass */
+.bg_wrapper::after {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 34, ../../app/styles/_backgrounds.sass */
+.bg_wrapper::before {
+  -webkit-transform: scale(6.5);
+  -moz-transform: scale(6.5);
+  -ms-transform: scale(6.5);
+  -o-transform: scale(6.5);
+  transform: scale(6.5);
+  -webkit-filter: blur(1px) grayscale(0.3) brightness(0.4);
+  -moz-filter: blur(1px) grayscale(0.3) brightness(0.4);
+  filter: blur(1px) grayscale(0.3) brightness(0.4);
+  background-image: url("bg.gif");
 }
 
 .footer{
