@@ -158,18 +158,47 @@ body {
 .jumbotron {
   margin: 60px 0;
   h1 {
-  font-size: 72px;
-  font-weight: 100;
-  line-height: 1;
+    font-size: 50px;
+    font-weight: 100;
+    line-height: 1;
+    margin-bottom: 0.4em;
+  }
+  .lead{
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 2em;
+  }
+  .gif-result{
+    position: relative;
+    img{
+      width: 470px;
+      position: relative;
+      z-index: 9999;
+    }
+    .wait{
+      position: absolute;
+      width: 100%;
+      top: 10%;
+      bottom: 100px;
+      z-index: 999;
+      animation: fadeIn 3s linear infinite;
+      -ms-animation: fadeIn 3s linear infinite;
+      -moz-animation: fadeIn 3s linear infinite;
+      -webkit-animation: fadeIn 3s linear infinite;    
+    }
   }
   .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+    font-size: 21px;
+    padding: 14px 24px;
   }
   input {
     padding: 14px;
-    margin: 0 10px;
+    margin: 0;
     font-size: 1.3em;
+    border-radius: 0;
+    border: none;
     &:focus{
       border-color: @dark;
       outline: 0;
@@ -182,9 +211,22 @@ body {
 }
 
 .btn-gvine{
-  .linear-gradient(180deg, @green, @dark-green);
+  border-radius: 0;
+  border: 0;
+  background-image: none;
+  box-shadow: none;
+  background-color: @red2;
   &:hover{
-    background-position: 0 0;
+    background-color: @red;
+  }
+}
+
+.jumbotron-result{
+  margin-top: 5px;
+  h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 38px;
   }
 }
 
@@ -238,5 +280,34 @@ ul.social {
       text-decoration: none;
       color: @red;
     }
+  }
+}
+
+.vine-link, .gvine-link{
+  display: inline-block;
+  margin: 0 1em;
+}
+
+#vine-url{
+  color: @green;
+  margin-left: 0.25em;
+  &:hover{
+    text-decoration: none;
+    color: @green2;
+  }  
+}
+#gvine-url{
+  color: @red2;
+  margin-left: 0.25em;
+  &:hover{
+    text-decoration: none;
+    color: @red;
+  }
+}
+a{
+  color: @red2;
+  &:hover{
+    text-decoration: none;
+    color: @red;
   }
 }

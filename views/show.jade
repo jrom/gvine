@@ -1,11 +1,24 @@
 extends layout
 block content
-  .result
-    h1 Animated GIF of the Vine video
-    p.lead Wait until it converts... the first time can take up to 30 seconds.
-    img(src="/gif/#{id}", alt='Animated GIF from a Vine video', id='gvine-image')
-    p.urls
-      | Vine:
-      a(id="vine-url", href="https://vine.co/v/#{id}") https://vine.co/v/#{id}
-      | – GVine:
-      a(id="gvine-url", href="/v/#{id}") http://gvine.co/v/#{id}
+  .bg_wrapper_generated
+      .bg_wrapper_final(style="background-image: url('/gif/#{id}')")
+  .container-narrow
+    a.logo(href='/') GVine
+
+    .result.jumbotron.jumbotron-result
+      h1
+        | Animated 
+        b  GIF
+        |  of the 
+        b  Vine
+        |  video
+      .gif-result
+        img(src="/gif/#{id}", alt='Animated GIF from a Vine video', id='gvine-image')
+        p.lead.wait Wait until it converts... the first time can take up to 30 seconds.
+      .urls
+        .vine-link
+          | Vine 
+          a(id="vine-url", href="https://vine.co/v/#{id}")  https://vine.co/v/#{id}
+        .gvine-link
+          |  GVine 
+          a(id="gvine-url", href="/v/#{id}") http://gvine.co/v/#{id}
