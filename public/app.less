@@ -11,52 +11,23 @@
 @white: #fff;
 @main-font: 'Yanone Kaffeesatz', sans-serif;
 
-// Mixins
-/*---------------------------------------------------
-    LESS Elements 0.9
-  ---------------------------------------------------
-    A set of useful LESS mixins
-    More info at: http://lesselements.com
-  ---------------------------------------------------*/
-.linear-gradient( @dir: top, @start-color: #eee, @end-color: #aaa ) {
-  background: -webkit-linear-gradient(@dir, @start-color 0%, @end-color 100%);
-  background: -moz-linear-gradient(@dir, @start-color 0%, @end-color 100%);
-  background: -ms-linear-gradient(@dir, @start-color 0%, @end-color 100%);
-  background: -o-linear-gradient(@dir, @start-color 0%, @end-color 100%);
-  background: linear-gradient(@dir, @start-color 0%, @end-color 100%);
-  .linear-gradient-ie( @dir, @start-color, @end-color);
-}
-
-.linear-gradient-ie( @dir, @start-color, @end-color) when (@dir = left),
-  not ( isstring(@dir) ) and ( @dir >= 315 ) and ( @dir < 360 ),
-  not ( isstring(@dir) ) and ( @dir >= -45 ) and ( @dir < 45 ),
-  not ( isstring(@dir) ) and ( @dir < -315 ) and ( @dir >= -360 ) {
-    .linear-gradient-ie-filter(@start-color, @end-color, 1);
-}
-
-.linear-gradient-ie-filter(@start: #eee, @end: #aaa, @type: 1) {
-  @c-start: argb(@start);
-  @c-end:   argb(@end);
-  filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{c-start}', endColorstr='@{c-end}', GradientType=@{type})";
-  -ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{c-start}',endColorstr='@{c-end}',GradientType=@{type})";
-}
 
 //Animations
-@keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: 0 100%; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 100%; }
 }
-@-webkit-keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: 0 100%; }
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 100%; }
 }
-@-ms-keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: 0 100%; }
+@-ms-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 100%; }
 }
-@-moz-keyframes animatedBackground {
-  from { background-position: 0 0; }
-  to { background-position: 0 100%; }
+@-moz-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 100%; }
 }
 
 .container-narrow {
