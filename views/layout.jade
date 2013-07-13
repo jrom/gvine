@@ -31,25 +31,25 @@ html(lang='en')
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     .header
-      .bg_wrapper
-      .container-narrow
-        a.logo(href='/') GVine
-        block content
+      block content
 
     .footer
-      .container-narrow
-        .jordi-profile
-          img(src="jrom-profile.jpeg", alt='Jordi Romero')
+      .container-narrow.row-fluid
+        .jordi-profile.span6
+          img(src="/jrom-profile.jpeg", alt='Jordi Romero')
           h3 &copy;
             b Jordi Romero 2013
           .twiter-follow
             a.twitter-follow-button(href="https://twitter.com/jordiromero", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @jordiromero
+        .jmartins-profile.span6
+          img(src="/jmartins-profile.jpeg", alt='Jordi Romero')
+          h3
+            b Designed by Josep Martins
+          .twiter-follow
+            a.twitter-follow-button(href="https://twitter.com/josep_martins", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @josep_martins
+        .span12.main-description
           p GVine is a fun project created by Jordi Romero and is not associated with or endorsed by Vine or Twitter.
           p Also, this has nothing to do with the gin with that name, although it's a really good gin.
-
-        span.designed_by
-          | Designed by
-          a(href="https://twitter.com/josep_martins") @josep_martins
 
     script(src='/jquery.min.js')
     block scripts
