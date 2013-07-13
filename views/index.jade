@@ -1,20 +1,27 @@
 extends layout
 block content
-  .jumbotron
-    h1 Convert your Vine videos to animated GIFs!
-    p.lead
-      | Paste the URL of your favorite Vine and we'll convert it to a super cool GIF
-    form#gvine-form(method='get')
-      input#original-vine-url.input-xlarge(type='text', placeholder='https://vine.co/v/bxuOxOImn5I', autofocus, value='https://vine.co/v/bxuOxOImn5I')
-      button.btn.btn-large.btn-success.btn-gvine(type='submit')
-        | Animate!
-    ul.social
-      li.twitter-post
-        a.twitter-share-button(href="https://twitter.com/share", data-url="http://gvine.co/", data-text="Create animated GIFs from Vine videos!", data-via="jordiromero", data-related="jordiromero", data-hashtags="vine", data-dnt="true") Tweet
-        script.
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-      li.facebook
-        .fb-like(data-href="http://gvine.co/", data-send="false", data-layout="button_count", data-width="450", data-show-faces="false")
+  .bg_wrapper
+  .container-narrow
+    a.logo(href='/') GVine
+    .jumbotron
+      h1
+        | Convert your
+        b  Vine 
+        | videos to animated
+        b  GIFs
+      p.lead
+        | Paste the URL of your favorite Vine and we'll convert it to a super cool GIF
+      form#gvine-form(method='get')
+        input#original-vine-url.input-xlarge(type='text', placeholder='https://vine.co/v/bxuOxOImn5I', autofocus, value='https://vine.co/v/bxuOxOImn5I')
+        button.btn.btn-large.btn-success.btn-gvine(type='submit')
+          | Animate!
+      ul.social
+        li.twitter-post
+          a.twitter-share-button(href="https://twitter.com/share", data-url="http://gvine.co/", data-text="Create animated GIFs from Vine videos!", data-via="jordiromero", data-related="jordiromero", data-hashtags="vine", data-dnt="true") Tweet
+          script.
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+        li.facebook
+          .fb-like(data-href="http://gvine.co/", data-send="false", data-layout="button_count", data-width="450", data-show-faces="false")
 
 
 block scripts
