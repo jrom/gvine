@@ -11,7 +11,6 @@
 @white: #fff;
 @main-font: 'Yanone Kaffeesatz', sans-serif;
 
-
 //Animations
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -28,6 +27,27 @@
 @-moz-keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 100%; }
+}
+
+// Base scaffold
+*{
+  &,
+  &:before,
+  &:after{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-bo
+  }
+}
+
+a{
+  color: @red2;
+  &:hover{
+    text-decoration: none;
+    color: @red;
+  }
 }
 
 .container-narrow {
@@ -53,6 +73,7 @@ body {
   overflow: hidden;
 }
 
+// Gif BG wrappers
 .bg_wrapper_generated{
   position: absolute;
   top: 0;
@@ -79,11 +100,10 @@ body {
   -ms-transform: scale(5.5);
   -o-transform: scale(5.5);
   transform: scale(5.5);
-  -webkit-filter: blur(5px) grayscale(0.3) brightness(0.2);
-  -moz-filter: blur(5px) grayscale(0.3) brightness(0.2);
-  filter: blur(5px) grayscale(0.3) brightness(0.2);
+  -webkit-filter: blur(6px) brightness(60%);
+  -moz-filter: blur(6px) brightness(60%);
+  filter: blur(6px) brightness(60%);
 }
-
 .bg_wrapper{
   position: absolute;
   top: 0;
@@ -91,7 +111,6 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .bg_wrapper::before, .bg_wrapper::after {
   display: block;
   position: absolute;
@@ -100,7 +119,6 @@ body {
   background-repeat: no-repeat;
   content: "";
 }
-/* line 17, ../../app/styles/_backgrounds.sass */
 .bg_wrapper::before {
   z-index: 1;
   width: 20%;
@@ -110,7 +128,6 @@ body {
   margin-top: -5%;
   margin-left: -10%;
 }
-/* line 26, ../../app/styles/_backgrounds.sass */
 .bg_wrapper::after {
   z-index: 1;
   top: 0;
@@ -118,18 +135,32 @@ body {
   width: 100%;
   height: 100%;
 }
-/* line 34, ../../app/styles/_backgrounds.sass */
+
+.gecko .bg_wrapper::before{
+  -webkit-filter: blur(1px) brightness(30%)  !important;
+  filter: blur(1px) brightness(30%)  !important;
+}
+
+.safari .bg_wrapper::before{
+  -webkit-filter: brightness(-5%) blur(1px) !important;
+  filter: brightness(-5%) blur(1px) !important;
+}
+.safari .lead{
+  color: #fff !important;
+}
+
 .bg_wrapper::before {
   -webkit-transform: scale(6.5);
   -moz-transform: scale(6.5);
   -ms-transform: scale(6.5);
   -o-transform: scale(6.5);
   transform: scale(6.5);
-  -webkit-filter: blur(1px) grayscale(0.3) brightness(0.4);
-  -moz-filter: blur(1px) grayscale(0.3) brightness(0.4);
-  filter: blur(1px) grayscale(0.3) brightness(0.4);
+  -webkit-filter: blur(1px) brightness(60%);
+  -moz-filter: blur(1px) brightness(60%);
+  filter: blur(1px) brightness(60%);  
   background-image: url("bg.gif");
 }
+
 
 .logo{
   background-image: url("logo.png");
@@ -140,7 +171,7 @@ body {
   height: 100px;
   text-indent: -9999em;
   margin: 0 auto;
-  padding-top: 3em;
+  margin-top: 3em;
   padding-bottom: 1em;
 }
 .urls {
@@ -187,9 +218,12 @@ body {
   .btn {
     font-size: 21px;
     padding: 14px 24px;
+    @media all and (max-width: 420px) {
+      width: 100%;
+    }    
   }
   input {
-    padding: 14px;
+    height: 48px;
     margin: 0;
     font-size: 1.3em;
     border-radius: 0;
@@ -202,6 +236,9 @@ body {
       -moz-box-shadow: inset 0 1px 1px fadeout(@dark, 80%), 0 0 8px fadeout(@dark, 80%);
       box-shadow: inset 0 1px 1px fadeout(@dark, 80%), 0 0 8px fadeout(@dark, 80%);
     }
+    @media all and (max-width: 420px) {
+      width: 100%;
+    }        
   }
 }
 
@@ -281,12 +318,25 @@ ul.social {
     height: 75px;
     border-radius: 50%;
   }
+  @media all and (max-width: 550px) {
+    width: 100% !important;
+    float: none !important;
+    clear: both;
+    margin-top: 2em;
+    .pre{
+      display: block;
+      line-height: 1;
+    }
+  }
 }
 .main-description{
   border-top: 1px solid #333;
   padding-top: 3em;
   p{
     font-size: 1.4em;
+  }
+  @media all and (max-width: 550px) {
+    margin: 0 !important;
   }
 }
 
@@ -308,14 +358,6 @@ ul.social {
   }  
 }
 
-// Base scaffold
-a{
-  color: @red2;
-  &:hover{
-    text-decoration: none;
-    color: @red;
-  }
-}
 // Centering rows
 .center-row{
   float: none !important;
