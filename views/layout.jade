@@ -34,22 +34,26 @@ html(lang='en')
       block content
 
     .footer
-      .container-narrow.row-fluid
-        .jordi-profile.span6
-          img(src="/jrom-profile.jpeg", alt='Jordi Romero')
-          h3 &copy;
-            b Jordi Romero 2013
-          .twiter-follow
-            a.twitter-follow-button(href="https://twitter.com/jordiromero", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @jordiromero
-        .jmartins-profile.span6
-          img(src="/jmartins-profile.jpeg", alt='Jordi Romero')
-          h3
-            b Designed by Josep Martins
-          .twiter-follow
-            a.twitter-follow-button(href="https://twitter.com/josep_martins", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @josep_martins
+      .container-narrow.row-fluid.profiles
+        .span8.center-row
+          .jordi-profile.span6
+            img(src="/jrom-profile.jpeg", alt='Jordi Romero')
+            h3
+              span.pre Created by
+              b Jordi Romero
+            .twiter-follow
+              a.twitter-follow-button(href="https://twitter.com/jordiromero", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @jordiromero
+          .jmartins-profile.span6
+            img(src="/jmartins-profile.jpeg", alt='Jordi Romero')
+            h3
+              span.pre Designed by
+              b Josep Martins
+            .twiter-follow
+              a.twitter-follow-button(href="https://twitter.com/josep_martins", data-show-count="false", data-show-screen-name="false", data-dnt="true") Follow @josep_martins
         .span12.main-description
           p GVine is a fun project created by Jordi Romero and is not associated with or endorsed by Vine or Twitter.
-          p Also, this has nothing to do with the gin with that name, although it's a really good gin.
-
+          p.lead Also, this has nothing to do with the gin with that name, although it's a really good gin.
+        .span12.copy
+          small GVine 2013
     script(src='/jquery.min.js')
     block scripts
