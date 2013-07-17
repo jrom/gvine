@@ -1,3 +1,4 @@
 tmp/*
 gif/*.gif
 public/app.css
+.DS_Store
